@@ -15,12 +15,15 @@ post '/names' do
 end
 
 get '/play' do
-  @player1 = $player1.get_name
-  @player2 = $player2.get_name
+  @player1 = $player1
+  @player2 = $player2
   erb :play
 end
 
 get '/attack' do
+  @player1 = $player1
+  @player2 = $player2
+  @player2.lose_hp
   erb :attack
 end
 

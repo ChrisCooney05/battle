@@ -13,12 +13,20 @@ feature 'Infrastructure test' do
 
   scenario "Be able to see player 2's hit points" do
     sign_in_and_play
-    expect(page).to have_content('Dave vs John: 5HP')
+    expect(page).to have_content('Dave vs John 50')
   end
 
   scenario "Player 1 attacks player 2 and gets confirmation" do
     sign_in_and_play
     click_button('Player 1 Attack')
-    expect(page).to have_content('Confirmed Kill')
+    expect(page).to have_content('Player 1 Hit')
   end
+
+  scenario "Player 1 attacks player 2 looses HP" do
+    sign_in_and_play
+    click_button('Player 1 Attack')
+    expect(page).to have_content('40')
+  end
+
+
 end
