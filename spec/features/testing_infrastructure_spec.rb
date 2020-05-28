@@ -15,4 +15,10 @@ feature 'Infrastructure test' do
     sign_in_and_play
     expect(page).to have_content('Dave vs John: 5HP')
   end
+
+  scenario "Player 1 attacks player 2 and gets confirmation" do
+    sign_in_and_play
+    click_button('Player 1 Attack')
+    expect(page).to have_content('Confirmed Kill')
+  end
 end

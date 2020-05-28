@@ -18,10 +18,11 @@ get '/play' do
   @player2 = session[:player2]
   erb :play
 end
-  run! if app_file == $0
+
+get '/attack' do 
+  erb :attack
 end
 
 
-# As two Players,
-# So we can play a personalised game of Battle,
-# We want to Start a fight by entering our names and seeing them
+  run! if app_file == $0
+end
