@@ -7,10 +7,12 @@ feature 'Infrastructure test' do
   end
 
   scenario 'Displays both player names, entered into forms' do
-    visit('/')
-    fill_in('player1', with: 'Dave')
-    fill_in('player2', with: 'John')
-    click_button('Submit')
+    sign_in_and_play
     expect(page).to have_content('Dave vs John')
+  end
+
+  scenario "Be able to see player 2's hit points" do
+    sign_in_and_play
+    expect(page).to have_content('Dave vs John: 5HP')
   end
 end
